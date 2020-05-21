@@ -1,25 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import GetArchivo from './components/getArchivo';
+import { fetchLambdaS3, fetchLambdaS3End } from './services/uploadFile'
 import './App.css';
+import { fetchLambdaTextract } from './services/textractFile';
+import Navigation from './components/navigation';
+import GetReportes from './components/getReportes';
 
 function App() {
+ 
+  const [IsValue, setIsValue] = useState()
+
+  const getFile64 = async (file64, file) => {
+    const uploadURL = await fetchLambdaS3(file)
+    const isValue = await fetchLambdaS3End(uploadURL,file64,file.type)
+    if(isValue) {
+      const response = await fetchLambdaTextract(file.name)
+      console.log(response)
+    }
+  }
+
+  const isNavigation = (e) => {
+    setIsValue(e)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className="container">
+      <Navigation callback={isNavigation} />
     </div>
+      <article className="artilCenter">
+      {
+        IsValue 
+        ? <GetArchivo callback={getFile64} />
+        : <GetReportes />
+      }
+      </article>
+    </>
   );
 }
 
