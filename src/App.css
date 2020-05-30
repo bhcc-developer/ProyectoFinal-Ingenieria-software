@@ -77,3 +77,62 @@ header {
 /* .artilCenter {
   border: 1px solid red;
 } */
+
+.alert {
+  text-align: center;
+  padding: .5rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.success {
+  background-color: #00BFFE;
+}
+
+.danger {
+  background-color: red;
+}
+
+.reportes {
+  text-align: center;
+}
+
+.title-report {
+  padding: .5rem 0;
+  color: #00BFFE;
+}
+
+.input {
+  margin-right: 1rem;
+}
+
+.btn-r {
+  background-color: #00BFFE;
+  border: none;
+  padding: .3rem;
+}
+
+.contenedorCard {
+  max-width: 1200px;;
+  margin: 1rem auto;
+  display: flex;
+  flex-wrap: wrap; 
+  /* border: 1px solid blue; */
+}
+
+.card {
+  width: 45%;
+  height: auto;
+  padding: 1rem;
+  background-color: #A6A6A6;
+  border-radius: 5px;
+  margin: .5rem;
+}
+
+.parrafo {
+  padding: 0.5rem;
+}
+
+.parrafoSpan {
+  font-weight: bold;
+}

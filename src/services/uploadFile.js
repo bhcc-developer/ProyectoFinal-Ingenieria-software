@@ -1,5 +1,5 @@
 export const fetchLambdaS3 = async (file) => {
-    const response = await fetch('https://8888dxme25.execute-api.us-east-1.amazonaws.com/dev/uploadfile', {
+    const response = await fetch('https://zvnx2eevn5.execute-api.us-east-1.amazonaws.com/dev/uploadfile', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
